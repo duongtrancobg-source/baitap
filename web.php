@@ -19,3 +19,11 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('pr
 Route::get('/enrollment', [EnrollmentController::class, 'index'])->name('enrollments.index');
 Route::post('/enrollment/add-course', [EnrollmentController::class, 'storeCourse'])->name('courses.store');
 Route::post('/enrollment/register', [EnrollmentController::class, 'register'])->name('enrollments.register');
+
+use App\Http\Controllers\OrderController;
+
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+Route::post('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
